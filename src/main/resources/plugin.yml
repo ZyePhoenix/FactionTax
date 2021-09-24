@@ -1,0 +1,61 @@
+main: com.gmail.ryderzye.factiontax.FactionsTax
+version: 1.0
+name: FactionsTax
+api-version: 1.16
+description: is an expansion for the popular Factions plugin. With this expansion factions can tax their members and Factions can optionally be forced to pay an upkeep cost. from is the developer. Feel free to visit us at www.massivecraft.com
+depend: [Factions]
+permissions:
+  # -------------------------------------------- #
+  # THE REAL NODES
+  # -------------------------------------------- #
+  factionstax.basecommand: {description: Use FactionsTax, default: false}
+  factionstax.info: {description: overview tax info, default: false}
+  factionstax.faction: {description: faction tax info, default: false}
+  factionstax.player: {description: player tax info, default: false}
+  factionstax.set: {description: set tax, default: false}
+  factionstax.run: {description: run taxation task, default: false}
+  factionstax.version: {description: display plugin version, default: false}
+  # -------------------------------------------- #
+  # STAR NOTATION
+  # -------------------------------------------- #
+  factionstax.*:
+    children:
+      factionstax.basecommand: true
+      factionstax.info: true
+      factionstax.faction: true
+      factionstax.player: true
+      factionstax.set: true
+      factionstax.run: true
+      factionstax.version: true
+  # -------------------------------------------- #
+  # KITS
+  # -------------------------------------------- #
+  factionstax.kit.op:
+    default: op
+    children:
+      factionstax.*: true
+  factionstax.kit.rank3:
+    default: false
+    children:
+      factionstax.kit.rank2: true
+  factionstax.kit.rank2:
+    default: false
+    children:
+      factionstax.kit.rank1: true
+  factionstax.kit.rank1:
+    default: false
+    children:
+      factionstax.kit.rank0: true
+  factionstax.kit.rank0:
+    default: false
+    children:
+      factionstax.basecommand: true
+      factionstax.info: true
+      factionstax.faction: true
+      factionstax.player: true
+      factionstax.set: true
+      factionstax.version: true
+  factionstax.kit.default:
+    default: true
+    children:
+      factionstax.kit.rank0: true
